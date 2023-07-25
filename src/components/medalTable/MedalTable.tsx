@@ -12,10 +12,12 @@ interface TeamsResponse {
 
 export const MedalTable: FunctionComponent = () => {
     const [teams, setTeams] = useState<Teams[]>([])
+    const [loading, setLoading] = useState<boolean>(true)
     const fetchUserData = async () => {
         const { teams }: TeamsResponse = await fetch('/api/teams', {
             method: 'GET',
         }).then((res) => res.json())
+        setLoading(false)
         setTeams(teams)
     }
 
@@ -24,16 +26,22 @@ export const MedalTable: FunctionComponent = () => {
     }, [])
 
     return (
-        <table className="w-full">
-            <thead>
-                <TableHeader />
-            </thead>
-            <tbody>
-                {teams &&
-                    calculateMedalStanding(teams).map((team, index) => {
-                        return <TableRow team={team} key={index} odd={Boolean(index % 2)} />
-                    })}
-            </tbody>
-        </table>
+        <div>
+            {loading ? (
+                <div className="flex justify-center items-center">Loading...</div>
+            ) : (
+                <table className="w-full">
+                    <thead>
+                        <TableHeader />
+                    </thead>
+                    <tbody>
+                        {teams &&
+                            calculateMedalStanding(teams).map((team, index) => {
+                                return <TableRow team={team} key={index} odd={Boolean(index % 2)} />
+                            })}
+                    </tbody>
+                </table>
+            )}
+        </div>
     )
 }
