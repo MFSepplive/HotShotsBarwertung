@@ -1,9 +1,11 @@
-import { Teams } from '@prisma/client'
+'use client'
+
 import { FunctionComponent } from 'react'
+import { MedalTableTeam } from '../MedalTable'
 
 export interface TableRowProps {
     odd: boolean
-    team: Teams
+    team: MedalTableTeam
 }
 
 export const TableRow: FunctionComponent<TableRowProps> = ({ odd, team }) => {

@@ -15,7 +15,28 @@ datasource db {
 model Teams {
   id String @id @default(cuid())
   name String
-  bronze Int
-  silver Int
-  gold Int
+  bronze Bronze[] 
+  silver Silver[]
+  gold Gold[] 
+}
+
+model Bronze {
+	id String @id @default(cuid())
+	team Teams @relation(fields: [teamId], references: [id])
+	teamId String
+	amount Int
+}
+
+model Silver {
+	id String @id @default(cuid())
+	team Teams @relation(fields: [teamId], references: [id])
+	teamId String
+	amount Int
+}
+
+model Gold {
+	id String @id @default(cuid())
+	team Teams @relation(fields: [teamId], references: [id])
+	teamId String
+	amount Int
 }

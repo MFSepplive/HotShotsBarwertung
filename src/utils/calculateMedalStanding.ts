@@ -1,6 +1,6 @@
-import { Teams } from '@prisma/client'
+import { MedalTableTeam } from '@src/components/medalTable/MedalTable'
 
-export function calculateMedalStanding(teams: Teams[]): Teams[] {
+export function calculateMedalStanding(teams: MedalTableTeam[]): MedalTableTeam[] {
     return teams.sort((a, b) => {
         if (a.gold > b.gold) {
             return -1

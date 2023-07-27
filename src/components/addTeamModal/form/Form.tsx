@@ -2,18 +2,18 @@
 
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-export type FormValues = {
+export type AddTeamFormValues = {
     name: string
 }
 
 import React, { FunctionComponent } from 'react'
 
 interface FormProps {
-    onSubmit: SubmitHandler<FormValues>
+    onSubmit: SubmitHandler<AddTeamFormValues>
 }
 
 export const Form: FunctionComponent<FormProps> = ({ onSubmit }) => {
-    const { register, handleSubmit } = useForm<FormValues>()
+    const { register, handleSubmit } = useForm<AddTeamFormValues>()
 
     return (
         <form id="add-team-form" onSubmit={handleSubmit(onSubmit)}>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Modal from '../modal/Modal'
-import { Form, FormValues } from './form/Form'
+import { AddTeamFormValues, Form } from './form/Form'
 import { v4 as uuidv4 } from 'uuid'
 import { SubmitHandler } from 'react-hook-form'
 
@@ -15,16 +15,14 @@ export const AddTeamModal = () => {
         setIsOpen(false)
     }
 
-    const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
+    const onSubmit: SubmitHandler<AddTeamFormValues> = async (data: AddTeamFormValues) => {
+        console.log(data)
         handleCloseModal()
         await fetch('/api/teams', {
             method: 'POST',
             body: JSON.stringify({
                 id: uuidv4(),
                 name: data.name,
-                gold: 0,
-                silver: 0,
-                bronze: 0,
             }),
             headers: {
                 'Content-Type': 'application/json',

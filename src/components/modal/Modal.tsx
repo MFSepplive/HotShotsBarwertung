@@ -1,6 +1,4 @@
 import { FunctionComponent, PropsWithChildren } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { FormValues } from '../addTeamModal/form/Form'
 
 interface ModalProps {
     isOpen: boolean

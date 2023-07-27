@@ -4,19 +4,32 @@ import { calculateMedalStanding } from '@src/utils/calculateMedalStanding'
 import { TableHeader } from './tableHeader/TableHeader'
 import { TableRow } from './tableRow/TableRow'
 import { FunctionComponent, useEffect, useState } from 'react'
-import { Teams } from '@prisma/client'
+import { SubmitHandler } from 'react-hook-form'
+import { AddAmountModal } from '../addAmountModal/AddAmountModal'
+import { AddAmountFormValues, Form } from '../addAmountModal/form/Form'
+
+export interface MedalTableTeam {
+    id: string
+    name: string
+    gold: number
+    silver: number
+    bronze: number
+}
 
 interface TeamsResponse {
-    teams: Teams[]
+    teams: MedalTableTeam[]
 }
 
 export const MedalTable: FunctionComponent = () => {
-    const [teams, setTeams] = useState<Teams[]>([])
+    const [teams, setTeams] = useState<MedalTableTeam[]>([])
     const [loading, setLoading] = useState<boolean>(true)
+
     const fetchUserData = async () => {
         const { teams }: TeamsResponse = await fetch('/api/teams', {
             method: 'GET',
         }).then((res) => res.json())
+
+        console.log(teams)
         setLoading(false)
         setTeams(teams)
     }

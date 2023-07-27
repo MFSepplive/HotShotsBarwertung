@@ -9,9 +9,6 @@ export const AddButton: FunctionComponent = () => {
             body: JSON.stringify({
                 id: uuidv4(),
                 name: 'Hallo',
-                gold: 0,
-                silver: 0,
-                bronze: 0,
             }),
             headers: {
                 'Content-Type': 'application/json',
