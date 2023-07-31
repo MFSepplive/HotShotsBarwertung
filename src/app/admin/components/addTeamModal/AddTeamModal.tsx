@@ -4,8 +4,8 @@ import { FunctionComponent, useState } from 'react'
 import { AddTeamFormValues, Form } from './form/Form'
 import { v4 as uuidv4 } from 'uuid'
 import { SubmitHandler } from 'react-hook-form'
-import { AdminListTeam } from '../adminTeamsList/AdminTeamsList'
 import Modal from '@src/components/modal/Modal'
+import { AdminListTeam } from '../teamsList/TeamsList'
 
 interface AddTeamModalProps {
     handleAddTeam: (teams: AdminListTeam[]) => void

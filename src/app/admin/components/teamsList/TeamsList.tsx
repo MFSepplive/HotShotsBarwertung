@@ -16,7 +16,7 @@ interface AdminListTeamsResponse {
     teams: AdminListTeam[]
 }
 
-export const AdminTeamsList = () => {
+export const TeamsList = () => {
     const [teams, setTeams] = useState<AdminListTeam[]>([])
     const [loading, setLoading] = useState<boolean>(true)
     const [selectedId, setSelectedId] = useState<string>('')
