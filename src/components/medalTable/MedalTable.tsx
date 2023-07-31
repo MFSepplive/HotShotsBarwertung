@@ -4,9 +4,6 @@ import { calculateMedalStanding } from '@src/utils/calculateMedalStanding'
 import { TableHeader } from './tableHeader/TableHeader'
 import { TableRow } from './tableRow/TableRow'
 import { FunctionComponent, useEffect, useState } from 'react'
-import { SubmitHandler } from 'react-hook-form'
-import { AddAmountModal } from '../addAmountModal/AddAmountModal'
-import { AddAmountFormValues, Form } from '../addAmountModal/form/Form'
 
 export interface MedalTableTeam {
     id: string

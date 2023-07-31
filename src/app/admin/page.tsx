@@ -1,5 +1,4 @@
-import { AddTeamModal } from '@src/components/addTeamModal/AddTeamModal'
-import { AdminTeamsList } from '@src/components/adminTeamsList/AdminTeamsList'
+import { AdminTeamsList } from './components/adminTeamsList/AdminTeamsList'
 
 export default function Admin() {
     return (

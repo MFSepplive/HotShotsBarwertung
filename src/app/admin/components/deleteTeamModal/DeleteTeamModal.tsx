@@ -1,7 +1,7 @@
 'use client'
 
+import Modal from '@src/components/modal/Modal'
 import { FunctionComponent, useState } from 'react'
-import Modal from '../modal/Modal'
 
 interface DeleteTeamModalProps {
     isOpen: boolean
@@ -13,7 +13,14 @@ interface DeleteTeamModalProps {
 export const DeleteTeamModal: FunctionComponent<DeleteTeamModalProps> = ({ handleCloseModal, handleDeleteTeam, isOpen, id }) => {
     return (
         <div className="flex w-full justify-end">
-            <Modal isOpen={isOpen}>
+            <Modal
+                isOpen={isOpen}
+                header={
+                    <div>
+                        <h1 className="text-2xl font-bold">Delete Team</h1>
+                    </div>
+                }
+            >
                 <div>
                     <h1>Are you sure you want to delete this team?</h1>
                 </div>

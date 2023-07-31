@@ -1,10 +1,11 @@
-import { FunctionComponent, PropsWithChildren } from 'react'
+import { FunctionComponent, PropsWithChildren, ReactNode } from 'react'
 
 interface ModalProps {
     isOpen: boolean
+    header: ReactNode
 }
 
-const Modal: FunctionComponent<PropsWithChildren<ModalProps>> = ({ isOpen, children }) => {
+const Modal: FunctionComponent<PropsWithChildren<ModalProps>> = ({ isOpen, children, header }) => {
     return (
         <>
             {isOpen && (
@@ -21,7 +22,7 @@ const Modal: FunctionComponent<PropsWithChildren<ModalProps>> = ({ isOpen, child
                                 aria-labelledby="modal-headline"
                             >
                                 <div className="p-3 flex gap-3 flex-col">
-                                    <div>Header</div>
+                                    {header}
                                     {children}
                                 </div>
                             </div>

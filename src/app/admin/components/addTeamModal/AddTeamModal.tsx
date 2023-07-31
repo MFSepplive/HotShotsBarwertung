@@ -1,11 +1,11 @@
 'use client'
 
 import { FunctionComponent, useState } from 'react'
-import Modal from '../modal/Modal'
 import { AddTeamFormValues, Form } from './form/Form'
 import { v4 as uuidv4 } from 'uuid'
 import { SubmitHandler } from 'react-hook-form'
 import { AdminListTeam } from '../adminTeamsList/AdminTeamsList'
+import Modal from '@src/components/modal/Modal'
 
 interface AddTeamModalProps {
     handleAddTeam: (teams: AdminListTeam[]) => void
@@ -42,7 +42,14 @@ export const AddTeamModal: FunctionComponent<AddTeamModalProps> = ({ handleAddTe
             <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={handleOpenModal}>
                 Add Team
             </button>
-            <Modal isOpen={isOpen}>
+            <Modal
+                isOpen={isOpen}
+                header={
+                    <div>
+                        <h1 className="text-2xl font-bold">Add Team</h1>
+                    </div>
+                }
+            >
                 <Form onSubmit={onSubmit} formId={formId} />
                 <div className="w-full bg-black h-px" />
                 <div className="flex justify-between items-center">

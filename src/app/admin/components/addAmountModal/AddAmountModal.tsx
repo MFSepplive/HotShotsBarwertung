@@ -1,9 +1,9 @@
 'use client'
 
 import { FunctionComponent } from 'react'
-import Modal from '../modal/Modal'
 import { SubmitHandler } from 'react-hook-form'
 import { AddAmountFormValues, Form } from './form/Form'
+import Modal from '@src/components/modal/Modal'
 
 interface AddAmountModalProps {
     isOpen: boolean
@@ -14,7 +14,14 @@ interface AddAmountModalProps {
 
 export const AddAmountModal: FunctionComponent<AddAmountModalProps> = ({ isOpen, handleCloseModal, onSubmit, formId }) => {
     return (
-        <Modal isOpen={isOpen}>
+        <Modal
+            isOpen={isOpen}
+            header={
+                <div>
+                    <h1 className="text-2xl font-bold">Add Team Amounts</h1>
+                </div>
+            }
+        >
             <Form onSubmit={onSubmit} formId={formId} />
             <div className="w-full bg-black h-px" />
             <div className="flex justify-between items-center">
