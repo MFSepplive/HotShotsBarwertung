@@ -10,13 +10,14 @@ import React, { FunctionComponent } from 'react'
 
 interface FormProps {
     onSubmit: SubmitHandler<AddTeamFormValues>
+    formId: string
 }
 
-export const Form: FunctionComponent<FormProps> = ({ onSubmit }) => {
+export const Form: FunctionComponent<FormProps> = ({ onSubmit, formId }) => {
     const { register, handleSubmit } = useForm<AddTeamFormValues>()
 
     return (
-        <form id="add-team-form" onSubmit={handleSubmit(onSubmit)}>
+        <form id={formId} onSubmit={handleSubmit(onSubmit)}>
             {/* register your input into the hook by invoking the "register" function */}
             <label className="mr-4" htmlFor="name">
                 Team Name:

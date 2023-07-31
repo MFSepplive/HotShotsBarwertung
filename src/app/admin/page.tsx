@@ -6,7 +6,6 @@ export default function Admin() {
         <div className="p-6 flex-1">
             <h1 className="text-2xl font-bold">Teams:</h1>
             <AdminTeamsList />
-            <AddTeamModal />
         </div>
     )
 }

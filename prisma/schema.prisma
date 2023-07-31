@@ -15,28 +15,38 @@ datasource db {
 model Teams {
   id String @id @default(cuid())
   name String
-  bronze Bronze[] 
-  silver Silver[]
-  gold Gold[] 
+//   bronze Bronze[] 
+//   silver Silver[]
+//   gold Gold[] 
+  sales Sales[]
 }
 
-model Bronze {
-	id String @id @default(cuid())
-	team Teams @relation(fields: [teamId], references: [id])
-	teamId String
-	amount Int
-}
+// model Bronze {
+// 	id String @id @default(cuid())
+// 	team Teams @relation(fields: [teamId], references: [id])
+// 	teamId String
+// 	amount Int
+// }
 
-model Silver {
-	id String @id @default(cuid())
-	team Teams @relation(fields: [teamId], references: [id])
-	teamId String
-	amount Int
-}
+// model Silver {
+// 	id String @id @default(cuid())
+// 	team Teams @relation(fields: [teamId], references: [id])
+// 	teamId String
+// 	amount Int
+// }
 
-model Gold {
+// model Gold {
+// 	id String @id @default(cuid())
+// 	team Teams @relation(fields: [teamId], references: [id])
+// 	teamId String
+// 	amount Int
+// }
+
+model Sales {
 	id String @id @default(cuid())
-	team Teams @relation(fields: [teamId], references: [id])
+	team Teams @relation(fields: [teamId], references: [id], onDelete: Cascade)
 	teamId String
-	amount Int
+	goldAmount Int
+	silverAmount Int
+	bronzeAmount Int
 }

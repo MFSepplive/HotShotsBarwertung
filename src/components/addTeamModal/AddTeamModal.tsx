@@ -1,12 +1,18 @@
 'use client'
 
-import { useState } from 'react'
+import { FunctionComponent, useState } from 'react'
 import Modal from '../modal/Modal'
 import { AddTeamFormValues, Form } from './form/Form'
 import { v4 as uuidv4 } from 'uuid'
 import { SubmitHandler } from 'react-hook-form'
+import { AdminListTeam } from '../adminTeamsList/AdminTeamsList'
 
-export const AddTeamModal = () => {
+interface AddTeamModalProps {
+    handleAddTeam: (teams: AdminListTeam[]) => void
+    formId: string
+}
+
+export const AddTeamModal: FunctionComponent<AddTeamModalProps> = ({ handleAddTeam, formId }) => {
     const [isOpen, setIsOpen] = useState(false)
     const handleOpenModal = () => {
         setIsOpen(true)
@@ -16,9 +22,8 @@ export const AddTeamModal = () => {
     }
 
     const onSubmit: SubmitHandler<AddTeamFormValues> = async (data: AddTeamFormValues) => {
-        console.log(data)
         handleCloseModal()
-        await fetch('/api/teams', {
+        const { teams: newTeams } = await fetch('/api/teams', {
             method: 'POST',
             body: JSON.stringify({
                 id: uuidv4(),
@@ -28,6 +33,8 @@ export const AddTeamModal = () => {
                 'Content-Type': 'application/json',
             },
         }).then((res) => res.json())
+
+        handleAddTeam(newTeams)
     }
 
     return (
@@ -35,8 +42,17 @@ export const AddTeamModal = () => {
             <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={handleOpenModal}>
                 Add Team
             </button>
-            <Modal isOpen={isOpen} onClose={handleCloseModal} formId="add-team-form">
-                <Form onSubmit={onSubmit} />
+            <Modal isOpen={isOpen}>
+                <Form onSubmit={onSubmit} formId={formId} />
+                <div className="w-full bg-black h-px" />
+                <div className="flex justify-between items-center">
+                    <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={handleCloseModal}>
+                        close
+                    </button>
+                    <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" form={formId} type="submit">
+                        submit
+                    </button>
+                </div>
             </Modal>
         </div>
     )

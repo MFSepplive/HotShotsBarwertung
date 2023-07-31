@@ -2,11 +2,9 @@ import { FunctionComponent, PropsWithChildren } from 'react'
 
 interface ModalProps {
     isOpen: boolean
-    onClose: () => void
-    formId: string
 }
 
-const Modal: FunctionComponent<PropsWithChildren<ModalProps>> = ({ isOpen, onClose, children, formId }) => {
+const Modal: FunctionComponent<PropsWithChildren<ModalProps>> = ({ isOpen, children }) => {
     return (
         <>
             {isOpen && (
@@ -25,19 +23,6 @@ const Modal: FunctionComponent<PropsWithChildren<ModalProps>> = ({ isOpen, onClo
                                 <div className="p-3 flex gap-3 flex-col">
                                     <div>Header</div>
                                     {children}
-                                    <div className="w-full bg-black h-px" />
-                                    <div className="flex justify-between items-center">
-                                        <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={onClose}>
-                                            close
-                                        </button>
-                                        <button
-                                            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-                                            form={formId}
-                                            type="submit"
-                                        >
-                                            submit
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
