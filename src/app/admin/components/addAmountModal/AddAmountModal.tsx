@@ -18,7 +18,7 @@ export const AddAmountModal: FunctionComponent<AddAmountModalProps> = ({ isOpen,
             isOpen={isOpen}
             header={
                 <div>
-                    <h1 className="text-2xl font-bold">Add Team Amounts</h1>
+                    <h1 className="text-2xl font-bold">Menge hinzufügen</h1>
                 </div>
             }
         >
@@ -26,10 +26,10 @@ export const AddAmountModal: FunctionComponent<AddAmountModalProps> = ({ isOpen,
             <div className="w-full bg-black h-px" />
             <div className="flex justify-between items-center">
                 <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={handleCloseModal}>
-                    close
+                    Schließen
                 </button>
                 <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" form={formId} type="submit">
-                    submit
+                    Hinzufügen
                 </button>
             </div>
         </Modal>

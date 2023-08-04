@@ -17,20 +17,20 @@ export const DeleteTeamModal: FunctionComponent<DeleteTeamModalProps> = ({ handl
                 isOpen={isOpen}
                 header={
                     <div>
-                        <h1 className="text-2xl font-bold">Delete Team</h1>
+                        <h1 className="text-2xl font-bold">Team löschen</h1>
                     </div>
                 }
             >
                 <div>
-                    <h1>Are you sure you want to delete this team?</h1>
+                    <h1>Bist du sicher das du das Team löschen willst?</h1>
                 </div>
                 <div className="w-full bg-black h-px" />
                 <div className="flex justify-between items-center">
                     <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={handleCloseModal}>
-                        close
+                        Schließen
                     </button>
                     <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDeleteTeam(id)}>
-                        yes
+                        Ja
                     </button>
                 </div>
             </Modal>

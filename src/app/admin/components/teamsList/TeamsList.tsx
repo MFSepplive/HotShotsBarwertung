@@ -92,9 +92,9 @@ export const TeamsList = () => {
         <div>
             <div className="flex flex-col gap-2 mb-10 mt-10">
                 {loading ? (
-                    <div className="flex justify-center items-center">Loading...</div>
+                    <div className="flex justify-center items-center">Laden...</div>
                 ) : teams.length === 0 ? (
-                    <div className="flex justify-center items-center">No Teams found</div>
+                    <div className="flex justify-center items-center">Kein Teams gefunden</div>
                 ) : (
                     <>
                         {teams.map((team) => {
@@ -106,7 +106,7 @@ export const TeamsList = () => {
                                             className="pt-2 pb-2 pl-2 pr-2 border rounded bg-red-500 hover:bg-red-700 border-gray-300 text-white font-bold mr-4"
                                             onClick={() => handleOpenDeleteTeamModal(team.id)}
                                         >
-                                            Delete Team
+                                            Team löschen
                                         </button>
                                         <button
                                             className="pt-2 pb-2 pl-2 pr-2 border rounded bg-gray-500 hover:bg-gray-700 border-gray-300 w-14 text-white font-bold"
