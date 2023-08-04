@@ -100,10 +100,10 @@ export const TeamsList = () => {
                         {teams.map((team) => {
                             return (
                                 <div className="w-full pb-2 border-b border-black flex items-center justify-between" key={team.id}>
-                                    <div>{team.name}</div>
-                                    <div>
+                                    <div className="max-w-100 overflow-hidden text-ellipsis whitespace-nowrap">{team.name}</div>
+                                    <div className="flex flex-nowrap">
                                         <button
-                                            className="pt-2 pb-2 pl-2 pr-2 border rounded bg-red-500 hover:bg-red-700 border-gray-300 text-white font-bold mr-4"
+                                            className="w-32 pt-2 pb-2 pl-2 pr-2 border rounded bg-red-500 hover:bg-red-700 border-gray-300 text-white font-bold mr-4"
                                             onClick={() => handleOpenDeleteTeamModal(team.id)}
                                         >
                                             Team löschen
